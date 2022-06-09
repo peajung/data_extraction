@@ -21,11 +21,23 @@ def decel_app(alt):
         return True
 
 def b787_type(call_sign, aircraft_type):
+    """
+    Description:
+    get aircraft call signg and air craft type. And separte aircraft type for B787 to be B788 and B789.
+    Also provide aircraft type for B77W
+    
+    Arguments:
+    call_sign: str
+    "HS-T??"
+    
+    aircraft_type: str"""
     reduced_callsign = call_sign[3:5]
     if reduced_callsign == 'TQ':
         final_type = 'B788'
     elif reduced_callsign == 'TW':
         final_type = 'B789'
+    elif reduced_callsign == 'TT':
+        final_type = 'B777'
     else:
         final_type = aircraft_type
-    return final_type    
+    return final_type
